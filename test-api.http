@@ -1,0 +1,17 @@
+@baseUrl = http://localhost:5195
+@token = {{login.response.body.token}}
+
+### Login to get JWT token
+# @name login
+POST {{baseUrl}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin",
+  "password": "password123"
+}
+
+### Get weather forecast (requires JWT token)
+GET {{baseUrl}}/api/weather
+Authorization: Bearer {{token}}
+

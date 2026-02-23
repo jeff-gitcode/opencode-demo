@@ -1,0 +1,29 @@
+@JwtAuthApi_HostAddress = http://localhost:5158
+@token = {{login.response.body.token}}
+
+### Register a new user
+POST {{JwtAuthApi_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "email": "demo@test.com",
+  "password": "password123"
+}
+
+### Login
+# @name login
+POST {{JwtAuthApi_HostAddress}}/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "demo",
+  "password": "password123"
+}
+
+### Get weather forecast (protected - requires JWT)
+GET {{JwtAuthApi_HostAddress}}/weatherforecast
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###

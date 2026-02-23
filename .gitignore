@@ -1,0 +1,65 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files
+*.rsuser
+*.userprefs
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+!**/packages/build/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+*.cache
+*.pdb
+*.dll
+*.exe
+
+# Rider
+.idea/
+
+# VS Code
+.settings/
+*.code-workspace
+
+# Secrets
+appsettings.*.json
+!appsettings.json
+!appsettings.Development.json
+
+# OS
+.DS_Store
+Thumbs.db
