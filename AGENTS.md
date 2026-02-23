@@ -4,6 +4,11 @@
 
 This is a .NET 8.0 ASP.NET Core Web API project with JWT authentication. The application provides user registration and login endpoints with token-based authentication.
 
+## Project Architecture Diagram
+
+
+---
+
 ## Technology Stack
 
 - **Framework**: .NET 8.0 (ASP.NET Core Web API)
