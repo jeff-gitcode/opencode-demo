@@ -1,5 +1,4 @@
-# OpenCode Step-by-Step Installation and Usage Guide (Open-Source Claude Code Alternative)
-
+# OpenCode Installation and Usage Guide ( Free Model + Antigravity )
 ## Overview
 
 OpenCode is an open-source AI coding agent that can:
@@ -11,6 +10,8 @@ OpenCode is an open-source AI coding agent that can:
 
 This guide walks you through installing and using OpenCode step-by-step.
 
+---
+![Open Code demo](./doc/opencode-demo.gif)
 ---
 
 # Step 1: Install Prerequisites
