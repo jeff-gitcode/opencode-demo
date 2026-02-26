@@ -63,3 +63,10 @@ appsettings.*.json
 # OS
 .DS_Store
 Thumbs.db
+
+# Next.js
+next-example/node_modules/
+next-example/.next/
+next-example/out/
+next-example/dist/
+next-example/build/

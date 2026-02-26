@@ -335,4 +335,14 @@ Install the opencode-antigravity-auth plugin and add the Antigravity model defin
 opencode auth login
 
 ```
+
+# OH MY OPENCODE
+```bash
+# Copy and paste this prompt to your LLM agent 
+Install and configure oh-my-opencode by following the instructions here:
+https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/master/docs/guide/installation.md
+```
+
+# add a hello world nextjs sample in next-example folder
+
 # End of Guide
