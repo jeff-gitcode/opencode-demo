@@ -1,4 +1,4 @@
-@JwtAuthApi_HostAddress = http://localhost:5158
+@JwtAuthApi_HostAddress = http://localhost:5001
 @token = {{login.response.body.token}}
 
 ### Register a new user

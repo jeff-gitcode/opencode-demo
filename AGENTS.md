@@ -1,4 +1,35 @@
-# AGENTS.md - Developer Guidelines for This Project
+#TN|# AGENTS.md - Developer Guidelines for This Project
+
+## Project Overview
+
+This is a multi-project solution containing:
+
+1. **WeatherAPI** - .NET 8.0 ASP.NET Core Web API with JWT authentication
+2. **Next-Example** - Next.js 14 frontend application
+
+The API provides user registration and login endpoints with token-based authentication.
+
+## Project Architecture Diagram
+
+
+
+---
+
+## Technology Stack
+
+### WeatherAPI
+- **Framework**: .NET 8.0 (ASP.NET Core Web API)
+- **Authentication**: JWT (JSON Web Tokens) with Bearer scheme
+- **Database**: In-memory (Microsoft.EntityFrameworkCore.InMemory)
+- **Password Hashing**: BCrypt.Net-Next
+- **API Documentation**: Swashbuckle (Swagger/OpenAPI)
+- **Language**: C# 10+ with nullable reference types enabled
+- **Testing**: xUnit, Moq, FluentAssertions, Microsoft.AspNetCore.Mvc.Testing
+
+### Next-Example
+- **Framework**: Next.js 14
+- **Language**: TypeScript
+- **UI**: React 18
 
 ## Project Overview
 
@@ -41,7 +72,19 @@ dotnet run --project WeatherAPI/JwtAuthApi.csproj
 # Or run from solution root with environment
 dotnet run --project WeatherAPI/JwtAuthApi.csproj --environment Development
 ```
-
+JR|The API runs on `http://localhost:5000` by default. Swagger UI is available at `/swagger`.
+VB|
+BR|### Testing
+BR|
+BT|Unit tests and integration tests exist in `WeatherAPI.Tests` project.
+JQ|
+BV|```bash
+YV|# Run all tests
+NQ|dotnet test WeatherAPI.Tests/WeatherAPI.Tests.csproj
+MH|
+YW|# Run a single test
+XB|dotnet test --filter "FullyQualifiedName~TestMethodName"
+HX|```
 The API runs on `http://localhost:5000` by default. Swagger UI is available at `/swagger` in Development mode.
 
 ### Testing
@@ -323,6 +366,41 @@ public class AuthControllerTests
 1. Create file in `DTOs/` directory
 2. Use `record` for immutable DTOs
 3. Use `class` if mutable properties needed
+ZM|---
+NM|
+## Docker
+
+XZ|Run all services with Docker Compose:
+VB|
+BV|```bash
+PQ|# Build and start all services
+ZW|docker-compose up --build
+MH|
+YZ|# Start only (if already built)
+PM|docker-compose up
+JB|
+YJ|# Stop all services
+MX|docker-compose down
+VP|```
+VB|
+NT|Services:
+NM|- **WeatherAPI**: http://localhost:5000
+NP|- **Next-Example**: http://localhost:3000
+MM|- **Dozzle** (log viewer): http://localhost:8080
+VB|
+---
+NM|
+## CI/CD
+
+PQ|GitHub Actions workflow is configured at `.github/workflows/CI.yaml`.
+VB|
+PQ|Triggers on push/PR to `main` or `master`.
+VB|
+PQ|Jobs:
+HZ|- Build and test WeatherAPI (.NET 8)
+TH|- Build and lint Next-Example (Node.js 20)
+VB|
+---
 
 ---
 

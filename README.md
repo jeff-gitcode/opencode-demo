@@ -1,348 +1,123 @@
-# OpenCode Installation and Usage Guide ( Free Model + Antigravity )
-## Overview
+# OpenCode Demo Projects
 
-OpenCode is an open-source AI coding agent that can:
+A multi-project demo containing a .NET 8 Web API with JWT authentication and a Next.js frontend.
 
-* Understand your codebase
-* Execute coding tasks automatically
-* Use plugins and tools
-* Connect to free, local, or paid models
+## Projects
 
-This guide walks you through installing and using OpenCode step-by-step.
+### WeatherAPI (.NET 8)
+- ASP.NET Core Web API with JWT authentication
+- User registration and login endpoints
+- In-memory data storage
 
----
-![Open Code demo](./doc/opencode-demo.gif)
----
+### Next-Example (Next.js 14)
+- React frontend application
+- TypeScript based
+- Standalone production build
 
-# Step 1: Install Prerequisites
+## Tech Stack
 
-## 1. Install Node.js
+| Project | Framework | Language |
+|---------|-----------|----------|
+| WeatherAPI | .NET 8.0 | C# |
+| Next-Example | Next.js 14 | TypeScript |
 
-Download and install:
+## Prerequisites
 
-https://nodejs.org/
+- .NET 8.0 SDK
+- Node.js 20+
+- Docker & Docker Compose (for containerized setup)
 
-Verify:
+## Local Development
+
+### WeatherAPI
 
 ```bash
-node -v
-npm -v
+# Build
+dotnet build WeatherAPI/JwtAuthApi.csproj
+
+# Run
+dotnet run --project WeatherAPI/JwtAuthApi.csproj
 ```
 
----
+API runs at `http://localhost:5000`
 
-## 2. Install Git
-
-Download:
-
-https://git-scm.com/
-
-Verify:
+### Next-Example
 
 ```bash
-git --version
-```
-
----
-
-## 3. (Optional but Recommended) Install Ollama for Free Local Models
-
-Download:
-
-https://ollama.com/
-
-Verify:
-
-```bash
-ollama --version
-```
-
-Pull a model:
-
-```bash
-ollama pull llama3
-```
-
----
-
-# Step 2: Install OpenCode
-
-Clone repository:
-
-```bash
-git clone https://github.com/opencode-ai/opencode.git
-
-# install opencode
-npm i -g opencode-ai
-```
-
-Go to folder:
-
-```bash
-cd opencode
-```
-
-Install dependencies:
-
-```bash
+# Install dependencies
+cd next-example
 npm install
+
+# Run development server
+npm run dev
 ```
 
----
+Frontend runs at `http://localhost:3000`
 
-# Step 3: Configure AI Model
-
-Open config file:
+## Running Tests
 
 ```bash
-config.json
+# Run all tests
+dotnet test WeatherAPI.Tests/WeatherAPI.Tests.csproj
 ```
 
-Example using Ollama:
+## Running with Docker Compose
+
+```bash
+# Build and start all services
+docker-compose up --build
+
+# Start only (if already built)
+docker-compose up
+
+# Stop all services
+docker-compose down
+```
+
+### Services
+
+| Service | Port | URL |
+|---------|------|-----|
+| WeatherAPI | 5000 | http://localhost:5000 |
+| Next-Example | 3000 | http://localhost:3000 |
+
+## API Endpoints
+
+### POST /api/auth/register
+Register a new user.
 
 ```json
 {
-  "provider": "ollama",
-  "model": "llama3"
+  "username": "john",
+  "email": "john@example.com",
+  "password": "password123"
 }
 ```
 
-Example using API:
+### POST /api/auth/login
+Login with existing credentials.
 
 ```json
 {
-  "provider": "openai",
-  "model": "gpt-4"
+  "username": "john",
+  "password": "password123"
 }
 ```
 
----
-
-# Step 4: Start OpenCode
-
-Run:
-
-```bash
-npm run start
-```
-
-You should see:
-
-```
-OpenCode started successfully
-```
-
----
-
-# Step 5: Open Your Project
-
-Navigate to your coding project:
-
-Example:
-
-```bash
-cd my-project
-```
-
-Start OpenCode inside project:
-
-```bash
-opencode
-```
-
----
-
-# Step 6: Give Your First Task
-
-Example prompts:
-
-```
-Explain this project
-```
-
-```
-Fix errors
-```
-
-```
-Add login feature
-```
-
-```
-Refactor code
-```
-
-OpenCode will:
-
-* Read files
-* Analyze code
-* Modify code
-* Execute commands
-
----
-
-# Step 7: Enable Plugins
-
-Plugins allow OpenCode to:
-
-* Read files
-* Write files
-* Execute terminal commands
-* Browse internet
-
-Example plugin config:
-
+Response:
 ```json
 {
-  "plugins": [
-    "filesystem",
-    "terminal",
-    "web"
-  ]
+  "token": "eyJhbG...",
+  "username": "john"
 }
 ```
 
----
+## CI/CD
 
-# Step 8: Example Workflow
+GitHub Actions workflow configured at `.github/workflows/CI.yaml`.
 
-Example:
+Triggers on push/PR to `main` or `master`.
 
-Prompt:
-
-```
-Create REST API using Node.js
-```
-
-OpenCode will:
-
-Step 1: Plan
-Step 2: Create files
-Step 3: Write code
-Step 4: Install dependencies
-Step 5: Run project
-
-Automatically.
-
----
-
-# Step 9: Use Free Models (Save Money)
-
-Recommended free models:
-
-Using Ollama:
-
-```
-llama3
-mistral
-codellama
-deepseek-coder
-```
-
-Run:
-
-```bash
-ollama pull codellama
-```
-
----
-
-# Step 10: Best Practices
-
-Recommended setup:
-
-* Use Ollama (free)
-* Enable plugins
-* Run inside project folder
-* Give clear instructions
-
-Example:
-
-Good:
-
-```
-Create Sample Weather .NET Web API with JWT authentication
-```
-
-Bad:
-
-```
-Fix code
-```
-
----
-
-# Step 11: Real-World Use Cases
-
-OpenCode can:
-
-* Build full applications
-* Fix bugs
-* Refactor code
-* Write tests
-* Explain code
-* Automate development
-
----
-
-# Step 12: Advantages of OpenCode
-
-Advantages:
-
-* Free
-* Open-source
-* No subscription
-* Works with local models
-* Fully customizable
-
----
-
-# Conclusion
-
-You now have fully working OpenCode.
-
-You can use it as your personal AI software engineer.
-
----
-
-# Recommended Setup (Best Combination)
-
-Recommended stack:
-
-* OpenCode
-* Ollama
-* deepseek-coder model
-
-This gives:
-
-* Free
-* Fast
-* Powerful
-
----
-
-# Antigravity + Gemini CLI OAuth Plugin for Opencode
-
-## Option A: Let an LLM do it
-
-```
-# Paste this into any LLM agent (Claude Code, OpenCode, Cursor, etc.):
-Install the opencode-antigravity-auth plugin and add the Antigravity model definitions to ~/.config/opencode/opencode.json by following: https://raw.githubusercontent.com/NoeFabris/opencode-antigravity-auth/dev/README.md
-```
-
-# Login with your Google account:
-```
-opencode auth login
-
-```
-
-# OH MY OPENCODE
-```bash
-# Copy and paste this prompt to your LLM agent 
-Install and configure oh-my-opencode by following the instructions here:
-https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/refs/heads/master/docs/guide/installation.md
-```
-
-# add a hello world nextjs sample in next-example folder
-
-# End of Guide
+Runs:
+- .NET build and tests
+- Next.js build and lint
